@@ -1,0 +1,59 @@
+/*--------------------
+Header
+--------------------*/
+.header {
+    margin-top: 10px;
+}
+.logo {
+    margin-bottom: 0;
+}
+.description {
+    font-size: 16px;
+    line-height: normal;
+}
+/*--------------------
+Main
+--------------------*/
+.main {
+    height: 100%;
+    min-height: 500px;
+    padding-top: 20px;
+}
+.user-info {
+    text-align: right;
+}
+.user-info p {
+    margin-bottom: 0;
+}
+.search-box {
+    margin-top: 10px;
+}
+.search-box::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+.search-form {
+    float: right;
+}
+/*--------------------
+Form
+--------------------*/
+.show-password {
+    margin-bottom: 0 !important;
+}
+.form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+/*--------------------
+Footer
+--------------------*/
+.footer {
+    margin-top: 10px;
+}
+.footer p {
+    padding: 5px 0 0 0;
+    border-top: 1px solid #CCCCCC;
+}
