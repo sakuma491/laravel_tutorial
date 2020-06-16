@@ -10,7 +10,7 @@ use TodolistService;
 
 class TodolistController extends Controller
 {
-    /*
+    /**
     * Todoリストの一覧画面を表示する。
     */
     public function index() {
@@ -20,7 +20,7 @@ class TodolistController extends Controller
             'list' => $list
         ]);
     }
-    /*
+    /**
     * タスクを追加する画面を表示する。
     */
     public function add() {
@@ -28,11 +28,10 @@ class TodolistController extends Controller
             'name' => Auth::user()->name
         ]);
     }
-    /*
+    /**
     * タスクを生成して追加する。
     */
     public function createTask(TodolistRequest $request) {
-        var_dump($request->status);
         $input = [
             'username' => Auth::user()->username,
             'title' => $request->title,
@@ -44,27 +43,33 @@ class TodolistController extends Controller
         $todolist->fill($input)->save();
         return redirect('/todolist');
     }
-    /*
+    /**
     * 詳細画面を表示する。
     */
-    public function detail(String $id) {
-        $task = TodolistService::getTaskById($id);
+    public function detail(string $id) {
+        $task = TodolistService::getTask($id, Auth::user()->username);
+        if(is_null($task)) {
+            abort(404);
+        }
         return view('todolist.detail', [
             'name' => Auth::user()->name,
             'task' => $task
         ]);
     }
-    /*
+    /**
     * タスクを編集する画面を表示する。
     */
-    public function edit(String $id) {
-        $task = TodolistService::getTaskById($id);
+    public function edit(string $id) {
+        $task = TodolistService::getTask($id, Auth::user()->username);
+        if(is_null($task)) {
+            abort(404);
+        }
         return view('todolist.edit', [
             'name' => Auth::user()->name,
             'task' => $task
         ]);
     }
-    /*
+    /**
     * タスクの内容を更新する。
     */
     public function updateTask(TodolistRequest $request) {
@@ -74,10 +79,10 @@ class TodolistController extends Controller
         $todolist->fill($form)->save();
         return redirect('/todolist');
     }
-    /*
+    /**
     * タスクを削除する。
     */
-    public function delete(String $id) {
+    public function delete(string $id) {
         Todolist::find($id)->delete();
         return redirect('/todolist');
     }

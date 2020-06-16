@@ -12,13 +12,13 @@ class LoginController extends Controller
     public function __construct() {
         $this->middleware('guest')->except('logout');
     }
-    /*
+    /**
     * ログイン画面を表示する。
     */
     public function index() {
         return view('login.index');
     }
-    /*
+    /**
     * ユーザー認証を行う。
     */
     public function login(LoginRequest $request) {

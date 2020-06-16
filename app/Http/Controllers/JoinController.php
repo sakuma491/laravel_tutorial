@@ -12,13 +12,13 @@ class JoinController extends Controller
     public function __construct() {
         $this->middleware('guest');
     }
-    /*
+    /**
     * 会員登録画面を表示する。
     */
     public function index() {
         return view('join.index');
     }
-    /*
+    /**
     * ユーザーを登録する。
     */
     public function join(JoinRequest $request) {
