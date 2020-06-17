@@ -24,5 +24,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/todolist/edit/{id}', 'TodolistController@edit');
     Route::post('/todolist/edit', 'TodolistController@updateTask');
     Route::get('/todolist/detail/{id}', 'TodolistController@detail');
-    Route::get('/todolist/delete/{id}', 'TodolistController@delete');
+    Route::get('/todolist/delete/{id}', 'TodolistController@destroy');
+    Route::post('/todolist/delete', 'TodolistController@deleteTask');
 });

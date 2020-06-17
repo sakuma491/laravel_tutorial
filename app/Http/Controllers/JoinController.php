@@ -13,14 +13,14 @@ class JoinController extends Controller
         $this->middleware('guest');
     }
     /**
-    * 会員登録画面を表示する。
-    */
+     * 会員登録画面を表示する。
+     */
     public function index() {
         return view('join.index');
     }
     /**
-    * ユーザーを登録する。
-    */
+     * ユーザーを登録する。
+     */
     public function join(JoinRequest $request) {
         $input = [
             'name' => $request->name,
