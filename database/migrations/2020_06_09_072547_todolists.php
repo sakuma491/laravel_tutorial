@@ -31,6 +31,6 @@ class Todolists extends Migration
      */
     public function down()
     {
-
+        Schema::dropIfExists('todolists');
     }
 }
